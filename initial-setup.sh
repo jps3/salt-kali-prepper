@@ -16,12 +16,12 @@ echo 'deb http://repo.saltstack.com/apt/debian/9/amd64/latest stretch main'     
 
 apt-get update
 
-apt-get                                \
-	-o Dpkg::Options::="--force-confdef" \
-	-o Dpkg::Options::="--force-confold" \
-  install                              \
-  -y                                   \
-  salt-minion                          \
+apt-get \
+  -o Dpkg::Options::="--force-confdef" \
+  -o Dpkg::Options::="--force-confold" \
+  install \
+  -y \
+  salt-minion \
   python-git
 
 
