@@ -24,6 +24,8 @@ apt-get \
   salt-minion \
   python-git
 
+update-rc.d salt-minion disable
+ 
 
 # ----------------------------------------------------------------------
 # 
