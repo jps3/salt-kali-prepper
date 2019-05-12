@@ -38,6 +38,18 @@ cp -R etc/salt/minion.d/*.conf /etc/salt/minion.d/
 cp -R srv/pillar /srv/
 cp -R srv/salt   /srv/
 
+
+
+echo "************************************************************"
+echo ""
+echo " Try applying the masterless (local) salt states:"
+echo ""
+echo " $ salt-call --local state.apply"
+echo ""
+echo " Or, with debugging output:"
+echo ""
+echo " $ salt-call --log-level=debug --local state.apply"
+echo ""
+echo "************************************************************"
+
 exit 0
-
-
