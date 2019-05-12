@@ -2,6 +2,7 @@
 packages:
   pkgs:
     wanted:
+      # baseline
       - apt-file
       - apt-listbugs
       - athena-jot

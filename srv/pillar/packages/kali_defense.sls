@@ -2,6 +2,7 @@
 packages:
   pkgs:
     wanted:
+      # kali defense
       - bleachbit
       - chkrootkit
       - debsecan

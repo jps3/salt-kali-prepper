@@ -2,6 +2,7 @@
 packages:
   pkgs:
     wanted:
+      # ui enhancement
       - ack
       - byobu
       - fonts-powerline

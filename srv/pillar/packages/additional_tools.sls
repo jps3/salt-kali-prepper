@@ -2,6 +2,7 @@
 packages:
   pkgs:
     wanted:
+      # additional tools
       - crackmapexec
       - dmitry
       - dnsrecon
