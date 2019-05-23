@@ -24,6 +24,8 @@ apt-get \
   salt-minion \
   python-git
 
+dpkg-query -f '${Package}\t${Status}' --show salt-minion
+
 update-rc.d salt-minion disable
  
 
