@@ -2,15 +2,28 @@
 packages:
   pkgs:
     wanted:
-      # additional tools
+      # # #  additional tools  # # #
+      # forensics - logs
+      - bro
+      - bro-aux
+      - forensics-all
+      - lnav
+      # forensics - steganography
+      - outguess
+      - pngcheck
+      - steghide
+      - stegosuite
+      # recon/attack
       - crackmapexec
+      - ftp
       - dmitry
       - dnsrecon
       - fierce
-      - ftp
       - gobuster
       - metagoofil
       - recon-ng
       - seclists
-      - strongswan
       - theharvester
+      # other/misc
+      - pandoc
+      - strongswan
