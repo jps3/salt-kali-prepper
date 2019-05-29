@@ -1,5 +1,5 @@
 ---
 base:
   '*':
-    - packages
-    - users
+    - packages.baseline
+    - users.rt01
