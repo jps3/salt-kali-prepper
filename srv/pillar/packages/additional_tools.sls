@@ -13,6 +13,7 @@ packages:
       - pngcheck
       - steghide
       - stegosuite
+      # # # stegcracker f/github # # #
       # recon/attack
       - crackmapexec
       - ftp
@@ -25,5 +26,8 @@ packages:
       - seclists
       - theharvester
       # other/misc
+      - docker.io
+      - docker-compose
       - pandoc
       - strongswan
+      # # # radare Cutter AppImage # # #
