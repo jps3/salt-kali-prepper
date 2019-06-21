@@ -40,8 +40,6 @@ cp -R etc/salt/minion.d/*.conf /etc/salt/minion.d/
 cp -R srv/pillar /srv/
 cp -R srv/salt   /srv/
 
-
-
 echo "************************************************************"
 echo ""
 echo " Try applying the masterless (local) salt states:"
