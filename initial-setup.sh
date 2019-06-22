@@ -8,6 +8,14 @@
 # 
 # ----------------------------------------------------------------------
 
+echo "************************************************************"
+echo ""
+echo " 1. Adding saltstack apt repo ..."
+echo " 2. Installing saltstack's salt-minion ..."
+echo " 3. Installing python-git ..."
+echo ""
+echo "************************************************************"
+
 wget -O - https://repo.saltstack.com/apt/debian/9/amd64/latest/SALTSTACK-GPG-KEY.pub \
 | sudo apt-key add -
 
