@@ -29,5 +29,6 @@ packages:
       - docker.io
       - docker-compose
       - pandoc
+      - shellcheck
       - strongswan
       # # # radare Cutter AppImage # # #
