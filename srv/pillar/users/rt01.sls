@@ -4,7 +4,8 @@ users-formula:
 users:
   rt01:
     fullname: Red Teamer 1
-    password: $6$8Km/UppZ95GSHSs1$I6SevyOhqvECL4/ZAR8VX6ADT.XWZFz5lGHDvV11ROZBKnkInfuYt6BHT2XBM4tl5rsdhLH3Ba5ExB03bSsaN/
+    password: "$6$8Km/UppZ95GSHSs1$I6SevyOhqvECL4/ZAR8VX6ADT.\
+      XWZFz5lGHDvV11ROZBKnkInfuYt6BHT2XBM4tl5rsdhLH3Ba5ExB03bSsaN/"
     empty_password: false
     enforce_password: true
     manage_bashrc: true

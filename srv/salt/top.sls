@@ -3,9 +3,9 @@
 base:
   '*':
     # salt-formulas
-    - user-root
     - apt.transports.https
     - users
     - packages
+    - user-root
     # locally-defined states
-    #- gnomedesktop
+    # - gnomedesktop
