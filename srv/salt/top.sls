@@ -1,4 +1,5 @@
 ---
+# salt
 base:
   '*':
     # salt-formulas

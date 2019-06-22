@@ -1,4 +1,5 @@
 ---
+# pillar
 base:
   '*':
     - packages.baseline
