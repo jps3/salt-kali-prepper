@@ -2,5 +2,5 @@
 # pillar
 base:
   '*':
-    - packages.baseline
+    - packages
     - users.rt01
