@@ -32,7 +32,7 @@ apt-get \
   salt-minion \
   python-git
 
-dpkg-query --showformat '${Status} ${Package} ${Version} ${Architecture}' --show salt-minion
+dpkg-query --show --showformat '${Status} ${Package} ${Version} ${Architecture}' salt-minion
 
 update-rc.d salt-minion disable
  
