@@ -41,8 +41,8 @@ packages:
       #  additional tools
       # --------------------------------------------------
       # forensics - logs
-      - bro
-      - bro-aux
+      #- bro      # on 20190808 getting error saying no package candidate for "bro" ???
+      #- bro-aux  # no bro, no bro-aux (not useful)
       - forensics-all
       - lnav
       # forensics - steganography
