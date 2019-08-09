@@ -7,6 +7,7 @@ base:
     - users
     - packages
     - sublime-text
+    - ufw
     - user-root
     # locally-defined states
     # - gnomedesktop

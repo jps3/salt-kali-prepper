@@ -88,6 +88,5 @@ packages:
       - privoxy
       - scrub
       - tor
-      - iptables
-      - iptables-persistent
+      - ufw
 
