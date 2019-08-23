@@ -14,6 +14,7 @@ packages:
       - curl
       - dc
       - debian-goodies
+      - direnv
       - figlet
       - gcc-multilib
       - jq
@@ -30,6 +31,7 @@ packages:
       - open-vm-tools-desktop
       - python3-pygments
       - python3-pip
+      - rbenv
       - tk-dev
       - vim-nox
       - wget
