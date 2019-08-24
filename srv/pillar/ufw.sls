@@ -9,6 +9,6 @@ ufw:
     ipv6: False
 
   services:
-    "8000:9999":
+    "9000:9199":
       protocol: tcp
       comment: Used for nefarious purposes, obviously
