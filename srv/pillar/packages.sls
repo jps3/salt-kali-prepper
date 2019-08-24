@@ -42,18 +42,17 @@ packages:
       # --------------------------------------------------
       #  additional tools
       # --------------------------------------------------
-      # forensics - logs
+      # -*- forensics - logs -*-
       #- bro      # on 20190808 getting error saying no package candidate for "bro" ???
       #- bro-aux  # no bro, no bro-aux (not useful)
       - forensics-all
       - lnav
-      # forensics - steganography
+      # -*- forensics - steganography -*-
       - outguess
       - pngcheck
       - steghide
       - stegosuite
-      # ? stegcracker f/github ?
-      # recon/attack
+      # -*- recon/attack -*-
       - crackmapexec
       - ftp
       - dmitry
@@ -64,7 +63,7 @@ packages:
       - recon-ng
       - seclists
       - theharvester
-      # other/misc
+      # -*- other/misc -*-
       - docker.io
       - docker-compose
       - pandoc
