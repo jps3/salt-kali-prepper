@@ -7,8 +7,9 @@ base:
     - dnsmasq
     - users
     - packages
-    - sublime-text
+    #- sublime-text
     - ufw
     - user-root
+    # TODO:- msf-setup
     # locally-defined states
     # - gnomedesktop
