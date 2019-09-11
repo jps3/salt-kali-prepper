@@ -6,6 +6,7 @@ packages:
       # --------------------------------------------------
       #  baseline
       # --------------------------------------------------
+      - aha
       - apt-file
       - apt-listbugs
       - athena-jot
@@ -45,6 +46,9 @@ packages:
       # -*- forensics - logs -*-
       #- bro      # on 20190808 getting error saying no package candidate for "bro" ???
       #- bro-aux  # no bro, no bro-aux (not useful)
+      # bro now rebranded as zeek
+      # binary packages via apt repo
+      # instructions at https://www.zeek.org/download/packages.html
       - forensics-all
       - lnav
       # -*- forensics - steganography -*-
@@ -58,6 +62,7 @@ packages:
       - dmitry
       - dnsrecon
       - fierce
+      - gdbserver
       - gobuster
       - metagoofil
       - recon-ng
