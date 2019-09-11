@@ -6,7 +6,7 @@ ufw:
 
   settings:
     loglevel: low
-    ipv6: False
+    ipv6: True
 
   services:
     "9000:9199":
