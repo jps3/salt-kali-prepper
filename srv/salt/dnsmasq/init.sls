@@ -43,4 +43,6 @@ dhclient eth0:
   cmd.run:
   - onchanges_any:
     - file: /etc/dnsmasq.d/000-htb-base.conf
+    - file: /etc/dnsmasq.d/htb-machines.conf
+
 
