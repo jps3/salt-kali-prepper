@@ -29,8 +29,9 @@ apt-get \
   -o Dpkg::Options::="--force-confold" \
   install \
   -y \
-  salt-minion \
-  python-git
+  salt-common=2018.3.4+dfsg1-7 \
+  salt-minion=2018.3.4+dfsg1-7 \
+  python3-git
 
 dpkg-query --show --showformat '${Status} ${Package} ${Version} ${Architecture}' salt-minion
 

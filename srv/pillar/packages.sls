@@ -21,8 +21,8 @@ packages:
       - jq
       - libbz2-dev
       - libc6-dev-i386
-      - libncurses5-dev
-      - libncursesw5-dev
+      #- libncurses5-dev
+      #- libncursesw5-dev
       - libreadline-dev
       - libsqlite3-dev
       - libssl-dev

@@ -3,7 +3,6 @@
 base:
   '*':
     # salt-formulas
-    - apt.transports.https
     - dnsmasq
     - users
     - packages
