@@ -10,17 +10,10 @@
 
 echo "************************************************************"
 echo ""
-echo " 1. Adding saltstack apt repo ..."
+echo " 1. Updating apt lists ..."
 echo " 2. Installing saltstack's salt-minion ..."
-echo " 3. Installing python-git ..."
 echo ""
 echo "************************************************************"
-
-wget -O - https://repo.saltstack.com/apt/debian/9/amd64/latest/SALTSTACK-GPG-KEY.pub \
-| sudo apt-key add -
-
-echo 'deb http://repo.saltstack.com/apt/debian/9/amd64/latest stretch main' \
-| tee /etc/apt/sources.list.d/saltstack.list
 
 apt-get update
 
@@ -29,8 +22,8 @@ apt-get \
   -o Dpkg::Options::="--force-confold" \
   install \
   -y \
-  salt-common=2018.3.4+dfsg1-7 \
-  salt-minion=2018.3.4+dfsg1-7 \
+  salt-minion \
+  python-git \
   python3-git
 
 dpkg-query --show --showformat '${Status} ${Package} ${Version} ${Architecture}' salt-minion
