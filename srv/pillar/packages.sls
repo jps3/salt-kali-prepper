@@ -17,12 +17,14 @@ packages:
       - debian-goodies
       - direnv
       - figlet
+      - flameshot
       - gcc-multilib
       - jq
       - libbz2-dev
       - libc6-dev-i386
       #- libncurses5-dev
       #- libncursesw5-dev
+      - libappindicator3-1
       - libreadline-dev
       - libsqlite3-dev
       - libssl-dev
