@@ -10,6 +10,7 @@ packages:
       - apt-file
       - apt-listbugs
       - athena-jot
+      - autojump
       - build-essential
       - cmake
       - curl
@@ -30,6 +31,7 @@ packages:
       - libssl-dev
       - llvm
       - molly-guard
+      - ncdu
       - needrestart
       - open-vm-tools-desktop
       - python3-pygments
