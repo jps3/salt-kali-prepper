@@ -9,6 +9,10 @@ ufw:
     ipv6: True
 
   services:
-    "9000:9199":
+    "4444":
       protocol: tcp
-      comment: Used for nefarious purposes, obviously
+      comment: Metasploit, typically.
+    "8000:8099":
+      protocol: tcp
+      comment: Used for honest puposes. Honestly!
+      
