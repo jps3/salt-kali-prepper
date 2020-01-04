@@ -10,5 +10,3 @@ base:
     - ufw
     - user-root
     # TODO:- msf-setup
-    # locally-defined states
-    # - gnomedesktop
