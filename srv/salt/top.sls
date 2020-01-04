@@ -4,7 +4,7 @@ base:
   '*':
     # salt-formulas
     - dnsmasq
-    - users
+    #- users
     - packages
     #- sublime-text
     - ufw
