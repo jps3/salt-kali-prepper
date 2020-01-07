@@ -3,10 +3,8 @@
 base:
   '*':
     # salt-formulas
-    - dnsmasq
-    #- users
     - packages
-    #- sublime-text
     - ufw
+    # others
+    - dnsmasq
     - user-root
-    # TODO:- msf-setup
