@@ -11,8 +11,8 @@ ufw:
   services:
     "4444":
       protocol: tcp
-      comment: Metasploit, typically.
+      comment: metasploit/netcat
     "8000:8099":
       protocol: tcp
-      comment: Used for honest puposes. Honestly!
+      comment: miscellaneous
       
