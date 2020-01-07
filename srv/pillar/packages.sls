@@ -18,13 +18,10 @@ packages:
       - debian-goodies
       - direnv
       - figlet
-      - flameshot
       - gcc-multilib
       - jq
       - libbz2-dev
       - libc6-dev-i386
-      #- libncurses5-dev
-      #- libncursesw5-dev
       - libappindicator3-1
       - libreadline-dev
       - libsqlite3-dev
@@ -77,12 +74,12 @@ packages:
       - docker-compose
       - pandoc
       - shellcheck
-      - strongswan
       # --------------------------------------------------
       #  ui enhancement
       # --------------------------------------------------
       - ack
       - byobu
+      - fonts-ibm-plex
       - fonts-powerline
       - fortunes-bofh-excuses
       - python3-pygments
@@ -97,6 +94,5 @@ packages:
       - fail2ban
       - privoxy
       - scrub
-      - tor
       - ufw
 
