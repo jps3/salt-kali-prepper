@@ -11,7 +11,7 @@
 declare -a pkg_list
 pkg_list=( "salt-minion" "python3-git" )
 
-# shellcheck source=lib_color_logging.sh
+# shellcheck disable=SC1091
 source lib_color_logging.sh
 
 
@@ -89,14 +89,12 @@ update-rc.d salt-minion disable
 
 # ----------------------------------------------------------------------
 
-print_header "Copy SaltStack support files to /srv/"
+print_header "Rsync (hard) SaltStack support files to /srv/"
 
-log "Copying *.conf files to /etc/salt/minion.d ..."
-cp -R etc/salt/minion.d/*.conf /etc/salt/minion.d/
-log "Copying pillar files to /srv/ ..."
-cp -R srv/pillar /srv/
-log "Copying salt files to /srv/ ..."
-cp -R srv/salt /srv/
+log "Rsync'ing ./etc/salt/minion.d/ files to /etc/salt/minion.d/ ..."
+rsync -a --delete etc/salt/minion.d/ /etc/salt/minion.d/
+log "Rsync'ing ./srv/ to /srv/ ..."
+rsync -a --delete srv/ /srv/
 
 
 # ----------------------------------------------------------------------
