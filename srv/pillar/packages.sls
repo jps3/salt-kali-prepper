@@ -30,6 +30,8 @@ packages:
       - molly-guard
       - ncdu
       - needrestart
+      - network-manager-openvpn
+      - network-manager-openvpn-gnome
       - open-vm-tools-desktop
       - python3-pygments
       - python3-pip
