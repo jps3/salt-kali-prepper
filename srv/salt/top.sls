@@ -3,9 +3,8 @@
 base:
   '*':
     # salt-formulas
-    - apt.transports.https
-    - users
     - packages
+    - ufw
+    # others
+    - dnsmasq
     - user-root
-    # locally-defined states
-    # - gnomedesktop
