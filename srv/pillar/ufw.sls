@@ -11,8 +11,8 @@ ufw:
   services:
     "4444":
       protocol: tcp
-      comment: metasploit/netcat
+      comment: blatant reverse shell port
     "8000:8099":
       protocol: tcp
-      comment: miscellaneous
+      comment: useful for proxies
       
