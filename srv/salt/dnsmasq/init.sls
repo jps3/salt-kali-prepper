@@ -1,4 +1,7 @@
 ---
+
+{% set machine_groups = ['active', 'retired'] %}
+
 install_dnsmasq:
   pkg.installed:
     - name: dnsmasq
@@ -13,15 +16,17 @@ install_dnsmasq:
     - require:
       - pkg: install_dnsmasq
 
-/etc/dnsmasq.d/htb-machines.conf:
+{% for group in machine_groups %}
+/etc/dnsmasq.d/htb-machines-{{ group }}.conf:
   file.managed:
-    - source: salt://dnsmasq/files/htb-machines.conf
+    - source: salt://dnsmasq/files/htb-machines-{{ group }}.conf
     - user: root
     - group: root
     - mode: 644
     - require:
       - pkg: install_dnsmasq
       - file: /etc/dnsmasq.d/000-htb-base.conf
+{% endfor %}
 
 /etc/dhcp/dhclient.conf:
   file.line:
@@ -37,12 +42,16 @@ dnsmasq:
     - enable: True
     - watch:
       - file: /etc/dnsmasq.d/000-htb-base.conf
-      - file: /etc/dnsmasq.d/htb-machines.conf
+    {%- for group in machine_groups %}
+      - file: /etc/dnsmasq.d/htb-machines-{{ group }}.conf
+    {%- endfor %}
 
 dhclient eth0:
   cmd.run:
   - onchanges_any:
     - file: /etc/dnsmasq.d/000-htb-base.conf
-    - file: /etc/dnsmasq.d/htb-machines.conf
+  {%- for group in machine_groups %}
+    - file: /etc/dnsmasq.d/htb-machines-{{ group }}.conf
+  {%- endfor %}
 
 
