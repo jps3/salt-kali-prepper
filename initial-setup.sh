@@ -33,11 +33,8 @@ print_header "Configure APT"
 
 if [[ "${ID_LIKE}" == "debian" ]]; then
   case "${VERSION%%\.*}" in
-    2019) APT_KEY_URL="https://repo.saltstack.com/py3/debian/10/amd64/latest/SALTSTACK-GPG-KEY.pub";
+    2019|2020) APT_KEY_URL="https://repo.saltstack.com/py3/debian/10/amd64/latest/SALTSTACK-GPG-KEY.pub";
           APT_SOURCE="deb http://repo.saltstack.com/py3/debian/10/amd64/latest buster main"
-          ;;
-    2018) APT_KEY_URL="https://repo.saltstack.com/py3/debian/9/amd64/latest/SALTSTACK-GPG-KEY.pub";
-          APT_SOURCE="deb http://repo.saltstack.com/py3/debian/9/amd64/latest stretch main"
           ;;
        *) echo "** NOT SUPPORTED **"
           exit 1
