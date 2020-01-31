@@ -7,4 +7,3 @@ base:
     - ufw
     # others
     - dnsmasq
-    - user-root
