@@ -14,6 +14,11 @@ pkg_list=( "salt-minion" "python3-git" )
 # shellcheck disable=SC1091
 source lib_color_logging.sh
 
+# ----------------------------------------------------------------------
+
+if [ "$EUID" -ne 0 ]; then
+  error_and_exit "Must be run as root."
+fi
 
 # ----------------------------------------------------------------------
 
