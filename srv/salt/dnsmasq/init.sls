@@ -1,5 +1,4 @@
 ---
-
 {% set machine_groups = ['active', 'retired'] %}
 
 install_dnsmasq:
@@ -15,6 +14,9 @@ install_dnsmasq:
     - mode: 644
     - require:
       - pkg: install_dnsmasq
+
+# TODO: Remove all /etc/dnsmasq.d/htb-machines*.conf _NOT_ defined 
+#       by template here. To remove old file cruft.
 
 {% for group in machine_groups %}
 /etc/dnsmasq.d/htb-machines-{{ group }}.conf:
