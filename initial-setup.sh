@@ -104,10 +104,10 @@ rsync -a --delete srv/ /srv/
 print_header "Installation Complete"
 
 log " Try applying the masterless (local) salt states:"
-log " $ salt-call --local state.apply"
+log " $ sudo salt-call --local state.apply"
 log ""
 log " Or, with debugging output:"
-log " $ salt-call --log-level=debug --local state.apply"
+log " $ sudo salt-call --log-level=debug --local state.apply"
 
 print_header "END."
 exit 0
