@@ -11,9 +11,14 @@
 declare -a pkg_list
 pkg_list=( "salt-minion" "python3-git" )
 
-# shellcheck source=lib_color_logging.sh
+# shellcheck disable=SC1091
 source lib_color_logging.sh
 
+# ----------------------------------------------------------------------
+
+if [ "$EUID" -ne 0 ]; then
+  error_and_exit "Must be run as root."
+fi
 
 # ----------------------------------------------------------------------
 
@@ -33,11 +38,8 @@ print_header "Configure APT"
 
 if [[ "${ID_LIKE}" == "debian" ]]; then
   case "${VERSION%%\.*}" in
-    2019) APT_KEY_URL="https://repo.saltstack.com/py3/debian/10/amd64/latest/SALTSTACK-GPG-KEY.pub";
+    2019|2020) APT_KEY_URL="https://repo.saltstack.com/py3/debian/10/amd64/latest/SALTSTACK-GPG-KEY.pub";
           APT_SOURCE="deb http://repo.saltstack.com/py3/debian/10/amd64/latest buster main"
-          ;;
-    2018) APT_KEY_URL="https://repo.saltstack.com/py3/debian/9/amd64/latest/SALTSTACK-GPG-KEY.pub";
-          APT_SOURCE="deb http://repo.saltstack.com/py3/debian/9/amd64/latest stretch main"
           ;;
        *) echo "** NOT SUPPORTED **"
           exit 1
@@ -89,14 +91,12 @@ update-rc.d salt-minion disable
 
 # ----------------------------------------------------------------------
 
-print_header "Copy SaltStack support files to /srv/"
+print_header "Rsync (hard) SaltStack support files to /srv/"
 
-log "Copying *.conf files to /etc/salt/minion.d ..."
-cp -R etc/salt/minion.d/*.conf /etc/salt/minion.d/
-log "Copying pillar files to /srv/ ..."
-cp -R srv/pillar /srv/
-log "Copying salt files to /srv/ ..."
-cp -R srv/salt /srv/
+log "Rsync'ing ./etc/salt/minion.d/ files to /etc/salt/minion.d/ ..."
+rsync -a --delete etc/salt/minion.d/ /etc/salt/minion.d/
+log "Rsync'ing ./srv/ to /srv/ ..."
+rsync -a --delete srv/ /srv/
 
 
 # ----------------------------------------------------------------------
@@ -104,10 +104,10 @@ cp -R srv/salt /srv/
 print_header "Installation Complete"
 
 log " Try applying the masterless (local) salt states:"
-log " $ salt-call --local state.apply"
+log " $ sudo salt-call --local state.apply"
 log ""
 log " Or, with debugging output:"
-log " $ salt-call --log-level=debug --local state.apply"
+log " $ sudo salt-call --log-level=debug --local state.apply"
 
 print_header "END."
 exit 0
