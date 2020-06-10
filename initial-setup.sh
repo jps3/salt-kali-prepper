@@ -9,7 +9,7 @@
 # ----------------------------------------------------------------------
 
 declare -a pkg_list
-pkg_list=( "salt-minion" "python3-git" )
+pkg_list=( "salt-minion" "salt-common" )
 
 # shellcheck disable=SC1091
 source lib_color_logging.sh
@@ -24,36 +24,7 @@ fi
 
 print_header "BEGIN"
 
-log "Sourcing os-release"
-# shellcheck disable=SC1091
-source /etc/os-release
-
-info "PRETTY_NAME" "${PRETTY_NAME}"
-info "VERSION"     "${VERSION}"
-
-
-# ----------------------------------------------------------------------
-
-print_header "Configure APT"
-
-if [[ "${ID_LIKE}" == "debian" ]]; then
-  case "${VERSION%%\.*}" in
-    2019|2020) APT_KEY_URL="https://repo.saltstack.com/py3/debian/10/amd64/latest/SALTSTACK-GPG-KEY.pub";
-          APT_SOURCE="deb http://repo.saltstack.com/py3/debian/10/amd64/latest buster main"
-          ;;
-       *) echo "** NOT SUPPORTED **"
-          exit 1
-          ;;
-  esac
-fi
-
-info "APT_KEY_URL" "${APT_KEY_URL}"
-log "Adding apt key for saltstack repo ..."
-wget --quiet -O - "${APT_KEY_URL}" | apt-key add -
-
-info "APT_SOURCE" "${APT_SOURCE}"
-log "Adding apt source for saltstack repo ..."
-echo "${APT_SOURCE}" | tee "/etc/apt/sources.list.d/saltstack.list"
+info "LSB" "$(lsb_release -si) $(lsb_release -sr) $(lsb_release -sc)"
 
 
 # ----------------------------------------------------------------------
