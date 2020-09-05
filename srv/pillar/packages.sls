@@ -18,6 +18,7 @@ packages:
       - debian-goodies
       - direnv
       - figlet
+      - flameshot
       - gcc-multilib
       - jq
       - libbz2-dev
@@ -40,6 +41,7 @@ packages:
       - vim-nox
       - wget
       - xmlstarlet
+      - xsel
       - xz-utils
       - yamllint
       - zlib1g-dev
