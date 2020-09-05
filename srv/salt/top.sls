@@ -7,3 +7,4 @@ base:
     - ufw
     # others
     - dnsmasq
+    - vscodium
