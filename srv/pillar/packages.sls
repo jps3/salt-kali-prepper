@@ -23,7 +23,7 @@ packages:
       - jq
       - libbz2-dev
       - libc6-dev-i386
-      - libappindicator3-1
+      #- libappindicator3-1 # 16-May-2021 getting not found errors unsure what requires this
       - libreadline-dev
       - libsqlite3-dev
       - libssl-dev
