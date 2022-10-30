@@ -15,4 +15,3 @@ ufw:
     "8000:8099":
       protocol: tcp
       comment: miscellaneous
-      
