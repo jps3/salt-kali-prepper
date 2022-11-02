@@ -23,7 +23,6 @@ packages:
       - jq
       - libbz2-dev
       - libc6-dev-i386
-      #- libappindicator3-1 # 16-May-2021 getting not found errors unsure what requires this
       - libreadline-dev
       - libsqlite3-dev
       - libssl-dev
@@ -31,13 +30,13 @@ packages:
       - molly-guard
       - ncdu
       - needrestart
-      - network-manager-openvpn
+      #- network-manager-openvpn
       - network-manager-openvpn-gnome
       - open-vm-tools-desktop
       - python3-pygments
       - python3-pip
       - rbenv
-      - tk-dev
+      #- tk-dev
       - vim-nox
       - wget
       - xmlstarlet
@@ -54,29 +53,29 @@ packages:
       # bro now rebranded as zeek
       # binary packages via apt repo
       # instructions at https://www.zeek.org/download/packages.html
-      - forensics-all
-      - lnav
+      #- forensics-all
+      #- lnav
       # -*- forensics - steganography -*-
-      - outguess
-      - pngcheck
-      - steghide
-      - stegosuite
+      #- outguess
+      #- pngcheck
+      #- steghide
+      #- stegosuite
       # -*- recon/attack -*-
       - crackmapexec
       - ftp
-      - dmitry
-      - dnsrecon
-      - fierce
-      - gdbserver
-      - gobuster
-      - metagoofil
-      - recon-ng
+      #- dmitry
+      #- dnsrecon
+      #- fierce
+      #- gdbserver
+      #- gobuster
+      #- metagoofil
+      #- recon-ng
       - seclists
-      - theharvester
+      #- theharvester
       # -*- other/misc -*-
-      - docker.io
-      - docker-compose
-      - pandoc
+      #- docker.io
+      #- docker-compose
+      #- pandoc
       - shellcheck
       # --------------------------------------------------
       #  ui enhancement
@@ -85,18 +84,17 @@ packages:
       - byobu
       - fonts-ibm-plex
       - fonts-powerline
-      - fortunes-bofh-excuses
-      - python3-pygments
+      #- fortunes-bofh-excuses
       - vim-pathogen
       # --------------------------------------------------
       #  kali defense
       # --------------------------------------------------
       - bleachbit
-      - chkrootkit
-      - debsecan
-      - debsums
-      - fail2ban
-      - privoxy
-      - scrub
+      #- chkrootkit
+      #- debsecan
+      #- debsums
+      #- fail2ban
+      #- privoxy
+      #- scrub
       - ufw
 
