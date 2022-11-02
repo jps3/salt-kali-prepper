@@ -1,0 +1,10 @@
+#!/bin/bash -eu
+
+# Temporarily disable GUI login window
+#   (someone forgets while provisioning in progress in background... :eyeroll:)
+systemctl set-default multi-user.target
+systemctl isolate     multi-user.target
+
+# Disable unneeded services
+systemctl disable apt-daily.service
+systemctl disable apt-daily.timer

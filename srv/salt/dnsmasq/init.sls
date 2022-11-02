@@ -11,12 +11,10 @@ install_dnsmasq:
     - source_hash: sha1=b84c5254ae017de06f8c6ed52ac6cf41ce830bba
     - user: root
     - group: root
-    - mode: 644
+    - mode: "0644"
     - require:
       - pkg: install_dnsmasq
 
-# TODO: Remove all /etc/dnsmasq.d/htb-machines*.conf _NOT_ defined 
-#       by template here. To remove old file cruft.
 
 {% for group in machine_groups %}
 /etc/dnsmasq.d/htb-machines-{{ group }}.conf:
@@ -24,7 +22,7 @@ install_dnsmasq:
     - source: salt://dnsmasq/files/htb-machines-{{ group }}.conf
     - user: root
     - group: root
-    - mode: 644
+    - mode: "0644"
     - require:
       - pkg: install_dnsmasq
       - file: /etc/dnsmasq.d/000-htb-base.conf

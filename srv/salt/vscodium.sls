@@ -1,13 +1,13 @@
 ---
-vscodium:
+vscodium-repo:
   pkgrepo.managed:
-    - humanname: vscodium-repo
-    - name: deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main
+    - humanname: VSCodium
+    - name: deb [signed-by=/usr/share/keyrings/pub.gpg arch=amd64] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main
     - file: /etc/apt/sources.list.d/vscodium.list
     - key_url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
-    - gpgcheck: 1
+    - aptkey: False
     - require_in:
-        - pkg: codium
+      - pkg: codium
 
 codium:
   pkg.latest:
