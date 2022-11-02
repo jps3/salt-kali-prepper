@@ -1,0 +1,4 @@
+#!/bin/bash -eu
+
+# Switch back to normal GUI login window setting (will appear after reboot)
+systemctl set-default graphical.target

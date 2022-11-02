@@ -1,0 +1,31 @@
+#!/bin/bash -eu
+
+declare -a REQUIRED_PACKAGES
+REQUIRED_PACKAGES=( "lsb-release" )
+
+RELEASE="${DEBIAN_RELEASE}"
+CODENAME="${DEBIAN_CODENAME}"
+SALT_REPO="https://repo.saltproject.io/py3/debian/${RELEASE}/amd64/latest"
+SALT_KEY_FILE="salt-archive-keyring.gpg"
+SALT_KEY_URL="${SALT_REPO}/${SALT_KEY_FILE}"
+SALT_KEYRING="/usr/share/keyrings/${SALT_KEY_FILE}"
+SALT_LIST="/etc/apt/sources.list.d/salt.list"
+
+if [[ -z "$RELEASE" || -z "$CODENAME" ]]; then
+    echo 'ERROR - DEBIAN_RELEASE and/or DEBIAN_CODENAME env vars not defined. Quitting?' 1>&2
+    exit 1
+fi
+
+
+# Add SaltStack Repo (see https://repo.saltproject.io/#debian)
+curl -fsSL -o "${SALT_KEYRING}" "${SALT_KEY_URL}"
+echo "deb [signed-by=${SALT_KEYRING} arch=amd64] ${SALT_REPO} ${CODENAME} main" \
+| sudo tee "${SALT_LIST}"
+
+# Update repos
+DEBIAN_FRONTEND=noninteractive apt-get -y -q update
+
+# Install required support packages for saltstack
+if [[ "${#REQUIRED_PACKAGES[@]}" -gt 0 ]]; then
+    DEBIAN_FRONTEND=noninteractive apt-get -y -q install "${REQUIRED_PACKAGES[@]}"
+fi
