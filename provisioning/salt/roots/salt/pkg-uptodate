@@ -1,0 +1,5 @@
+---
+# salt.states.pkg.uptodate
+update_pkg:
+  pkg.uptodate:
+    - refresh: True
