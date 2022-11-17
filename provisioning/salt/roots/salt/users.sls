@@ -7,3 +7,7 @@ vagrant:
     - gid: 1000
     # mkpasswd -m yescrypt
     - password: 
+
+# Don't remove this file, it breaks the 'vagrant' commands!
+#/etc/sudoers.d/vagrant:
+#  file.absent
