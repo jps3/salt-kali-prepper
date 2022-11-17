@@ -28,4 +28,6 @@ DEBIAN_FRONTEND=noninteractive apt-get -y -q update
 # Install required support packages for saltstack
 if [[ "${#REQUIRED_PACKAGES[@]}" -gt 0 ]]; then
     DEBIAN_FRONTEND=noninteractive apt-get -y -q install "${REQUIRED_PACKAGES[@]}"
+else
+    echo "No REQUIRED_PACKAGES defined. Skipping ..." 1>&2
 fi
