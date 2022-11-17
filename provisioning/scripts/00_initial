@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/bash -e
 
 # Temporarily disable GUI login window
 #   (someone forgets while provisioning in progress in background... :eyeroll:)

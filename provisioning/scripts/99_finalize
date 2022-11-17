@@ -1,7 +1,9 @@
-#!/bin/bash -eu
+#!/bin/bash
 
 # Switch back to normal GUI login window setting (will appear after reboot)
 systemctl set-default graphical.target
 
 # Restart any updated services
 needrestart -r a -f noninteractive
+
+exit 0
