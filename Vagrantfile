@@ -1,10 +1,17 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+#  ┏━╸╻  ┏━┓┏┓ ┏━┓╻  ┏━┓
+#  ┃╺┓┃  ┃ ┃┣┻┓┣━┫┃  ┗━┓
+#  ┗━┛┗━╸┗━┛┗━┛╹ ╹┗━╸┗━┛
 # These will need to be gleaned or guessed at from Kali box
 DEBIAN_RELEASE  = '11'
 DEBIAN_CODENAME = 'bullseye'
 
+
+#  ┏┳┓┏━┓╻┏┓╻
+#  ┃┃┃┣━┫┃┃┗┫
+#  ╹ ╹╹ ╹╹╹ ╹
 
 Vagrant.configure("2") do |config|
 
@@ -24,12 +31,8 @@ Vagrant.configure("2") do |config|
   #  ┗━┓┗┳┛┃┗┫┃  ┣╸  ┃┃   ┣╸ ┃ ┃┃   ┃┃┣╸ ┣┳┛┗━┓
   #  ┗━┛ ╹ ╹ ╹┗━╸┗━╸╺┻┛   ╹  ┗━┛┗━╸╺┻┛┗━╸╹┗╸┗━┛
 
-  #config.vm.synced_folder "etc/salt/minion.d", "/etc/salt/minion.d", type: "rsync", owner: "root", group: "root"
-  #config.vm.synced_folder "srv/salt", "/srv/salt", type: "rsync", owner: "root", group: "root"
-  #config.vm.synced_folder "srv/pillar", "/srv/pillar", type: "rsync", owner: "root", group: "root"
-  config.vm.synced_folder "etc/salt/minion.d", "/etc/salt/minion.d", owner: "root", group: "root"
-  config.vm.synced_folder "srv/salt", "/srv/salt", owner: "root", group: "root"
-  config.vm.synced_folder "srv/pillar", "/srv/pillar", owner: "root", group: "root"
+  config.vm.synced_folder "provisioning/salt/roots/salt", "/srv/salt", owner: "root", group: "root"
+  config.vm.synced_folder "provisioning/salt/roots/pillar", "/srv/pillar", owner: "root", group: "root"
 
 
   #  ┏━┓┏━┓┏━┓╻ ╻╻┏━┓╻┏━┓┏┓╻╻┏┓╻┏━╸
@@ -38,38 +41,43 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :shell do |s|
     s.name = "Initial preparation and settings"
-    s.path = "provisioning/00_initial"
+    s.path = "provisioning/scripts/00_initial"
     s.privileged = true
   end
 
   config.vm.provision :shell do |s|
     s.name = "Preparation for salt provisioning"
-    s.env = { :DEBIAN_RELEASE => "#{DEBIAN_RELEASE}", :DEBIAN_CODENAME => "#{DEBIAN_CODENAME}" }
-    s.path = "provisioning/10_saltstack_prep"
+    s.env = { 
+      :DEBIAN_RELEASE => "#{DEBIAN_RELEASE}", 
+      :DEBIAN_CODENAME => "#{DEBIAN_CODENAME}" 
+    }
+    s.path = "provisioning/scripts/10_saltstack_prep"
     s.privileged = true
   end
 
   config.vm.provision :salt do |salt|
-    salt.bootstrap_script = "provisioning/20_saltstack_bootstrap"
     salt.masterless = true
-    salt.minion_config = "etc/salt/kali-minion.conf"
     salt.run_highstate = true
+    salt.bootstrap_script = "provisioning/scripts/20_saltstack_bootstrap"
+    salt.salt_call_args = ["-c /tmp/"]
+    salt.minion_config = "provisioning/salt/minion"
   end
 
   config.vm.provision :shell do |s|
     s.name = "Finalize provisioning"
-    s.path = "provisioning/99_finalize"
-    s.reboot = true
-    s.reset = true
+    s.path = "provisioning/scripts/99_finalize"
+    #s.reboot = true 
+    #   'vagrant up' hangs after VM successfully reboots (witnessed in gui) 
+    #   with '==> default: Waiting for machine to reboot...' message
   end
 
 
   #  ╺┳╸┏━┓╻┏━╸┏━╸┏━╸┏━┓┏━┓
   #   ┃ ┣┳┛┃┃╺┓┃╺┓┣╸ ┣┳┛┗━┓
   #   ╹ ╹┗╸╹┗━┛┗━┛┗━╸╹┗╸┗━┛
+
   #config.trigger.after :provision do |t|
-  #  t.info = "Provisioning completed"
-  #  t.run = { inline: "/usr/bin/say -v Tessa 'Check that the guest box has rebooted.'"}
+  #  t.warn = "You should probably do a 'vagrant reload' now."
   #end
 
 end
